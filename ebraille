@@ -1,0 +1,1404 @@
+
+// 3rd SEM mini project E - Braille 
+
+#define PIN_COUNT 6
+
+// The following instruction defines hardware pins used to deliver the output.
+int braillePins[] = { A0, A1, A2, A3, A4, A5 };
+
+// The following instruction defines amount of delay between one alphanumeric chararter and its imeadiate output. 
+int refreshSpeed = 10000;
+
+void setup() 
+{
+  // The following instructions implements a for loop to initialise 6 output pins.
+  for (int i=0; i < PIN_COUNT; i++)
+  {     
+    pinMode(braillePins[i], OUTPUT);     
+    digitalWrite(braillePins[i], LOW);   
+  }  
+
+  // The following instruction implements a delay function to give suffiecient time for system to produce a data.
+  delay(refreshSpeed); 
+  
+  // The following instructions defines Baud Rate of the system. 
+  Serial.begin(9600);
+   
+}
+ 
+void loop() 
+{
+  
+  if (Serial.available() > 0) 
+  {
+    int data = Serial.read();
+    
+    switch (data)
+  {          
+           //Implements number 0-9
+           case 48:
+           {
+            Serial.println("The number pressed is 0");
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 49:
+           {
+            Serial.println("The number pressed is 1");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            
+            break ;
+           }
+           case 50:
+           {
+            Serial.println("The number pressed is 2");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            
+            break ;
+           }
+           
+           case 51:
+           {
+            Serial.println("The number pressed is 3");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 52:
+           {
+            Serial.println("The number pressed is 4");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 53:
+           {
+            Serial.println("The number pressed is 5");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW); 
+            digitalWrite(A0, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 54:
+           {
+            Serial.println("The number pressed is 6");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 55:
+           {
+            Serial.println("The number pressed is 7");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 56:
+           {
+            Serial.println("The number pressed is 8");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 57:
+           {
+            Serial.println("The number pressed is 9");
+            
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+
+           //Implements character A-Z
+           case 65 :
+           {
+            Serial.println("The character pressed is A");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            
+            break ;
+           }
+           case 66 :
+           {
+            Serial.println("The character pressed is B");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            
+            break ;
+           }
+           
+           case 67:
+           {
+            Serial.println("The character pressed is C");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 68:
+           {
+            Serial.println("The character pressed is D");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 69:
+           {
+            Serial.println("The character pressed is E");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 70:
+           {
+            Serial.println("The character pressed is F");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 71:
+           {
+            Serial.println("The character pressed is G");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 72:
+           {
+            Serial.println("The character pressed is H");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 73:
+           {
+            Serial.println("The character pressed is I");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 74:
+           {
+            Serial.println("The character pressed is J");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW); 
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 75:
+           {
+            Serial.println("The character pressed is K");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW); 
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            
+            break ;
+           }
+           case 76:
+           {
+            Serial.println("The character pressed is L");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            
+            break ;
+           }
+           case 77:
+           {
+            Serial.println("The character pressed is M");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 78:
+           {
+            Serial.println("The character pressed is N");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW); 
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 79:
+           {
+            Serial.println("The character pressed is O");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 80:
+           {
+            Serial.println("The character pressed is P");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 81:
+           {
+            Serial.println("The character pressed is Q");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 82:
+           {
+            Serial.println("The character pressed is R");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 83:
+           {
+            Serial.println("The character pressed is S");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 84:
+           {
+            Serial.println("The character pressed is T");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW); 
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 85:
+           {
+            Serial.println("The character pressed is U");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 86:
+           {
+            Serial.println("The character pressed is V");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 87:
+           {
+            Serial.println("The character pressed is W");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW); 
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 88:
+           {
+            Serial.println("The character pressed is X");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 89:
+           {
+            Serial.println("The character pressed is Y");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 90:
+           {
+            Serial.println("The character pressed is Z");
+            
+            digitalWrite(A6, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A6, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+
+
+
+           //Implements character a-z
+           case 97:
+           {
+            Serial.println("The character pressed is a");
+            
+            digitalWrite(A0, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            
+            break ;
+           }
+           case 98:
+           {
+            Serial.println("The character pressed is b");
+             
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            
+            break ;
+           }
+           
+           case 99:
+           {
+            Serial.println("The character pressed is c");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 100:
+           {
+            Serial.println("The character pressed is d");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 101:
+           {
+            Serial.println("The character pressed is e");
+             
+            digitalWrite(A0, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 102:
+           {
+            Serial.println("The character pressed is f");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 103:
+           {
+            Serial.println("The character pressed is g");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 104:
+           {
+            Serial.println("The character pressed is h");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 105:
+           {
+            Serial.println("The character pressed is i");
+            
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 106:
+           {
+            Serial.println("The character pressed is j");
+            
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 107:
+           {
+            Serial.println("The character pressed is k");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            
+            break ;
+           }
+           case 108:
+           {
+            Serial.println("The character pressed is l");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            
+            break ;
+           }
+           case 109:
+           {
+            Serial.println("The character pressed is m");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 110:
+           {
+            Serial.println("The character pressed is n");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+             
+            break ;
+           }
+           case 111:
+           {
+            Serial.println("The character pressed is 0");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 112:
+           {
+            Serial.println("The character pressed is p");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 113:
+           {
+            Serial.println("The character pressed is q");
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 114:
+           {
+            Serial.println("The character pressed is r");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 115:
+           {
+            Serial.println("The character pressed is s");
+            
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 116:
+           {
+            Serial.println("The character pressed is t");
+            
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 117:
+           {
+            Serial.println("The character pressed is u");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 118:
+           {
+            Serial.println("The character pressed is v");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 119:
+           {
+            Serial.println("The character pressed is w");
+            
+            digitalWrite(A1, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 120:
+           {
+            Serial.println("The character pressed is x");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 121:
+           {
+            Serial.println("The character pressed is y");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 122:
+           {
+            Serial.println("The character pressed is z");
+            
+            digitalWrite(A0, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+
+           
+           //Implements Punctuations , . ! ; : @ & # 
+           case 44:
+           {
+            Serial.println("The punctuation pressed is ,");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A1, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            
+            break ;
+           }
+           
+           case 46:
+           {
+            Serial.println("The punctuation pressed is .");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 33:
+           {
+            Serial.println("The punctuation pressed is !");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A4, LOW);
+            
+            break ;
+           }
+           case 59:
+           {
+            Serial.println("The punctuation pressed is ;");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            
+            break ;
+           }
+           case 58:
+           {
+            Serial.println("The punctuation pressed is :");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 64:
+           {
+            Serial.println("The punctuation pressed is @");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A3, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+           case 38:
+           {
+            Serial.println("The punctuation pressed is &");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 35:
+           {
+            Serial.println("The punctuation pressed is #");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+
+
+           // Implements Operators - + = 
+           case 45:
+           {
+            Serial.println("The operator pressed is -");
+             
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 43:
+           {
+            Serial.println("The operator pressed is +");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 61:
+           {
+            Serial.println("The operator pressed is =");
+             
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A0, HIGH);
+            digitalWrite(A1, HIGH);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            digitalWrite(A5, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A0, LOW);
+            digitalWrite(A1, LOW);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A5, LOW);
+            
+            break ;
+           }
+           case 47:
+           {
+            Serial.println("The operator pressed is /");
+            
+            digitalWrite(A3, HIGH);
+            digitalWrite(A4, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A3, LOW);
+            digitalWrite(A4, LOW);
+            digitalWrite(A2, HIGH);
+            digitalWrite(A3, HIGH);
+            delay(refreshSpeed);
+            digitalWrite(A2, LOW);
+            digitalWrite(A3, LOW);
+            
+            break ;
+           }
+  }
+    
+   }
+  }
+  
+
